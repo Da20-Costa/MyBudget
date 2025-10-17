@@ -3,7 +3,7 @@
 Um aplicativo web full-stack para gerenciamento de finanças pessoais, construído com Python, Flask e SQL.
 An full-stack web aplication for personal finance management, built with Python, Flask and SQL.
 
-![Screenshot do Dashboard do Meu Orçamento]([<URL_DA_SUA_IMAGEM_AQUI>](https://imgur.com/a/1GiD8ts))
+![Screenshot do Dashboard do Meu Orçamento](https://i.imgur.com/jHT4RNr.png)
 
 ---
 
