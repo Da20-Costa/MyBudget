@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Recurring
+{% endblock %}
+
+{% block main %}
+    <h2 class="mb-4">Add Recurring Transactions</h2>
+    <form action="/recurring" method="POST" class="mb-5">
+        <div class="mb-3">
+            <input autofocus class="form-control" name="amount" placeholder="Amount" type="number" step="0.01">
+        </div>
+        <div class="mb-3">
+            <select class="form-select" name="type">
+                <option disabled selected value="">Select Transaction Type</option>
+                {% for transaction in transactions %}
+                <option value="{{ transaction }}">{{ transaction }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="mb-3">
+            <select class="form-select" name="category">
+                <option disabled selected value="">Select Category</option>
+                {% for category in categories %}
+                    <option value="{{ category.name }}">{{ category.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="mb-3">
+            <input class="form-control" type="text" name="description" placeholder="Description (e.g., Salary, Netflix)">
+        </div>
+        <div class="mb-3">
+            <input class="form-control" name="day_of_month" placeholder="Day of Month (1-31)" type="number">
+        </div>
+        <button class="btn btn-primary" type="submit">Save Recurring Rule</button>
+    </form>
+
+    <h3 class="mb-4">Your Recurring Transactions</h3>
+    <ul class="list-group">
+        {% for trans in recurring_trans %}
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            <span>
+                <strong>{{ trans.description }}</strong> ({{ trans.amount | brl}} - Day {{ trans.day_of_month }})
+                <small class="d-block text-muted">{{ trans.type }} / {{trans.category}}</small>
+            </span>
+            <form action="/delete_recurring" method="POST">
+                <input type="hidden" name="recurring_id" value="{{ trans.id }}">
+                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+            </form>
+        </li>
+        {% else %}
+        <li class="list-group-item">No recurring transaction set yet.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

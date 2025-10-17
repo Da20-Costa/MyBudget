@@ -1,0 +1,103 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Dashboard
+{% endblock %}
+
+{% block main %}
+    <h1 style="font-weight: bold">Dashboard</h1>
+    <h2>Hello, {{ username }}</h2>
+    <p class="lead">Here is your financial summary for this month.</p>
+
+    <hr>
+
+    <div class="row mb-4">
+        <div class="col-md-4">
+            <div class="card text-white bg-success mb-3">
+                <div class="card-header">Monthly Income</div>
+                <div class="card-body">
+                    <h4 class="card-title">{{ total_income | brl }}</h4>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-white bg-danger mb-3">
+                <div class="card-header">Monthly Total Expenses</div>
+                <div class="card-body">
+                    <h4 class="card-title">{{ total_expense | brl }}</h4>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-white {% if balance >= 0 %}bg-primary{% else %}bg-warning{% endif %} mb-3">
+                <div class="card-header">Current Balance</div>
+                <div class="card-body">
+                    <h4 class="card-title">{{ balance | brl }}</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="d=grid gap-2 col-6 mx-auto mb-5">
+        <a href="/add" class="btn btn-dark btn-lg">Add New Transaction</a>
+    </div>
+
+    <hr>
+
+    <h4 class="text-start">Recent Transactions</h4>
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th class="text-start">Date</th>
+                <th class="text-start">Description</th>
+                <th class="text-start">Category</th>
+                <th class="text-end">Amount</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for recent_transaction in recent_transactions %}
+            <tr>
+                <td class="text-start">{{ recent_transaction.timestamp | dateformat }}</td>
+                <td class="text-start">{{ recent_transaction.description }}</td>
+                <td class="text-start">{{ recent_transaction.category }}</td>
+                <td class="text-end {% if recent_transaction.type == 'Income' %}text-success{% else %}text-danger{% endif%}">
+                    {{ recent_transaction.amount | brl }}
+                </td>
+                <td>
+                    <form action="/delete_transaction" method="POST" style="display:inline;">
+                        <input type="hidden" name="transaction_id" value="{{ recent_transaction.id }}">
+                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <hr>
+
+    <h4 class="text-start mt-4 mb-3">Budget Progress</h4>
+
+    {% for item in budget_progress %}
+    <div class="mb-3">
+        <div class="d-flex justify-content-between">
+            <span>{{ item.category }}</span>
+            <span>{{ item.spent | brl }} / {{ item.budgeted | brl }}</span>
+        </div>
+        <div class="progress" style="height: 20px;">
+            <div class="progress-bar {% if item.percentage > 90 %}bg-danger{% elif item.percentage > 70 %}bg-warning{% else %}bg-info{% endif %}"
+                role="progressbar"
+                style="width: {{ item.percentage }}%;"
+                aria-valuenow="{{ item.percentage }}"
+                aria-valuemin="0"
+                aria-valuemax="100">
+                {{ "%.0f" | format(item.percentage) }}%
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <p class="text-muted">No budgets set for this month. Visit the <a href="/budget">Budget Page</a> to create.</p>
+    {% endfor %}
+
+{% endblock %}
