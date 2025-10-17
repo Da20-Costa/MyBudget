@@ -1,6 +1,6 @@
 # Meu Orçamento (My Budget)
 
-Um aplicativo web full-stack para gerenciamento de finanças pessoais, construído com Python, Flask e SQL.
+Um aplicativo web full-stack para gerenciamento de finanças pessoais, construído com Python, Flask e SQL. <br>
 An full-stack web aplication for personal finance management, built with Python, Flask and SQL.
 
 ![Screenshot do Dashboard do Meu Orçamento](https://i.imgur.com/jHT4RNr.png)
