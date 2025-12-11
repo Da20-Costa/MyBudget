@@ -66,6 +66,12 @@ Como este projeto não inclui o banco de dados nem o ambiente virtual (por boas 
 * Git
 * SQLite3
 
+Caso esteja usando Linux ou WSL (Ubuntu) e não tenha o SQLite3, instale-o com:
+```bash
+sudo apt update
+sudo apt install sqlite3
+```
+
 ### Passo a Passo
 
 1.  **Clone o repositório**
@@ -113,6 +119,12 @@ Since this project excludes the database file and the virtual environment (for s
 * Python 3
 * Git
 * SQLite3
+
+If you are on Linux or WSL (Ubuntu) and missing SQLite3, install it via:
+```bash
+sudo apt update
+sudo apt install sqlite3
+```
 
 ### Step-by-Step
 
