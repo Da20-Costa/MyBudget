@@ -54,3 +54,103 @@ The goal is to offer an intuitive yet powerful platform for users to understand 
 * **Database:** SQLite
 * **Frontend:** HTML5, CSS3, JavaScript
 * **Frameworks/Libraries:** Bootstrap 5, Chart.js, Jinja
+
+---
+
+## 🛠️ Como Rodar Localmente (How to Run)
+
+Como este projeto não inclui o banco de dados nem o ambiente virtual (por boas práticas de segurança), siga estes passos para configurar o projeto na sua máquina.
+
+### Pré-requisitos
+* Python 3
+* Git
+* SQLite3
+
+### Passo a Passo
+
+1.  **Clone o repositório**
+    ```bash
+    git clone [https://github.com/SEU-USUARIO/NOME-DO-REPO.git](https://github.com/SEU-USUARIO/NOME-DO-REPO.git)
+    cd NOME-DO-REPO
+    ```
+
+2.  **Crie e Ative o Ambiente Virtual**
+    É necessário criar uma "caixa de ferramentas" isolada para instalar as bibliotecas.
+    ```bash
+    # Criar a venv
+    python3 -m venv venv
+
+    # Ativar no Linux/macOS
+    source venv/bin/activate
+
+    # Ativar no Windows (Powershell)
+    .\venv\Scripts\Activate
+    ```
+
+3.  **Instale as Dependências**
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+4.  **Configure o Banco de Dados**
+    Como o arquivo `.db` não está no repositório, você precisa criá-lo a partir do esquema.
+    *(Certifique-se de usar o mesmo nome de arquivo que está no seu `app.py`, ex: `budget.db` ou `orcamento.db`)*
+    ```bash
+    sqlite3 budget.db < schema.sql
+    ```
+
+5.  **Rode a Aplicação**
+    ```bash
+    flask run
+    ```
+    Acesse o link gerado (geralmente `http://127.0.0.1:5000`) no seu navegador.
+
+---
+
+## 🇬🇧 How to Run Locally
+
+Since this project excludes the database file and the virtual environment (for security best practices), follow these steps to set it up on your machine.
+
+### Prerequisites
+* Python 3
+* Git
+* SQLite3
+
+### Step-by-Step
+
+1.  **Clone the repository**
+    ```bash
+    git clone [https://github.com/YOUR-USERNAME/REPO-NAME.git](https://github.com/YOUR-USERNAME/REPO-NAME.git)
+    cd REPO-NAME
+    ```
+
+2.  **Create and Activate Virtual Environment**
+    You need to create an isolated environment to install the required libraries.
+    ```bash
+    # Create venv
+    python3 -m venv venv
+
+    # Activate on Linux/macOS
+    source venv/bin/activate
+
+    # Activate on Windows (Powershell)
+    .\venv\Scripts\Activate
+    ```
+
+3.  **Install Dependencies**
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+4.  **Set Up the Database**
+    Since the `.db` file is not in the repo, you must create it from the schema file.
+    *(Make sure to use the same filename defined in your `app.py`, e.g., `budget.db`)*
+    ```bash
+    sqlite3 budget.db < schema.sql
+    ```
+
+5.  **Run the Application**
+    ```bash
+    flask run
+    ```
+    Open the generated link (usually `http://127.0.0.1:5000`) in your browser.
