@@ -70,8 +70,8 @@ Como este projeto não inclui o banco de dados nem o ambiente virtual (por boas 
 
 1.  **Clone o repositório**
     ```bash
-    git clone [https://github.com/SEU-USUARIO/NOME-DO-REPO.git](https://github.com/SEU-USUARIO/NOME-DO-REPO.git)
-    cd NOME-DO-REPO
+    git clone https://github.com/Da20-Costa/MyBudget.git
+    cd MyBudget
     ```
 
 2.  **Crie e Ative o Ambiente Virtual**
@@ -118,8 +118,8 @@ Since this project excludes the database file and the virtual environment (for s
 
 1.  **Clone the repository**
     ```bash
-    git clone [https://github.com/YOUR-USERNAME/REPO-NAME.git](https://github.com/YOUR-USERNAME/REPO-NAME.git)
-    cd REPO-NAME
+    git clone https://github.com/Da20-Costa/MyBudget.git
+    cd MyBudget
     ```
 
 2.  **Create and Activate Virtual Environment**
