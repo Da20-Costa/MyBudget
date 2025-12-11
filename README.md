@@ -75,7 +75,6 @@ Como este projeto não inclui o banco de dados nem o ambiente virtual (por boas 
     ```
 
 2.  **Crie e Ative o Ambiente Virtual**
-    É necessário criar uma "caixa de ferramentas" isolada para instalar as bibliotecas.
     ```bash
     # Criar a venv
     python3 -m venv venv
@@ -94,7 +93,6 @@ Como este projeto não inclui o banco de dados nem o ambiente virtual (por boas 
 
 4.  **Configure o Banco de Dados**
     Como o arquivo `.db` não está no repositório, você precisa criá-lo a partir do esquema.
-    *(Certifique-se de usar o mesmo nome de arquivo que está no seu `app.py`, ex: `budget.db` ou `orcamento.db`)*
     ```bash
     sqlite3 budget.db < schema.sql
     ```
@@ -125,7 +123,6 @@ Since this project excludes the database file and the virtual environment (for s
     ```
 
 2.  **Create and Activate Virtual Environment**
-    You need to create an isolated environment to install the required libraries.
     ```bash
     # Create venv
     python3 -m venv venv
@@ -144,7 +141,6 @@ Since this project excludes the database file and the virtual environment (for s
 
 4.  **Set Up the Database**
     Since the `.db` file is not in the repo, you must create it from the schema file.
-    *(Make sure to use the same filename defined in your `app.py`, e.g., `budget.db`)*
     ```bash
     sqlite3 budget.db < schema.sql
     ```
